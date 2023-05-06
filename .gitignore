@@ -2,7 +2,10 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-
+.idea/modules.xml
+.idea/vcs.xml
+TaskIfSwitch.iml
+.idea/misc.xml
 ### Eclipse ###
 .apt_generated
 .classpath
