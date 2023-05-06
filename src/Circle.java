@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Circle {
     //7) Определить принадлежность точки кругу
     public static void main(String[] args) {
         //ввод всех необходимых данных
