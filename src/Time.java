@@ -89,13 +89,21 @@ public class Time {
 
         //вывод результата
         System.out.print(secondsIn + " -> ");
+        if (week != 0) {
+            System.out.print(week + " " + weekWord + " ");
+        }
+        if (day != 0) {
+            System.out.print(day + " " + dayWord + " ");
+        }
         if (hour != 0) {
             System.out.print(hour + " " + hourWord + " ");
         }
         if (minute != 0) {
             System.out.print(minute + " " + minuteWord + " ");
         }
-        System.out.print(seconds + " " + secondsWord);
+        if (seconds != 0) {
+            System.out.print(seconds + " " + secondsWord);
+        }
     }
 
     //выбор окончаний слов, у всех 3 варинта
