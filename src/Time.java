@@ -14,24 +14,41 @@ public class Time {
         sc.close();
 
         //разделение часов, минут и секунд
-        int hour = secondsIn / 3600;
+        int day;
+        int hour;
         int minute;
         int seconds;
-        if (hour == 0) {
+        int week = secondsIn / (3600 * 24 * 7);
+        if (week == 0) {
+            day = secondsIn / (3600 * 24);
+        } else {
+            day = (secondsIn - week * 7 * 24 * 3600) / (3600 * 24);
+        }
+        if (week == 0 && day == 0) {
+            hour = secondsIn / 3600;
+        } else {
+            hour = (secondsIn - week * 7 * 24 * 3600 - day * 24 * 3600) / 3600;
+        }
+        if (week == 0 && day == 0 && hour == 0) {
             minute = secondsIn / 60;
         } else {
-            minute = (secondsIn - 3600 * hour) / 60;
+            minute = (secondsIn - week * 7 * 24 * 3600 - day * 24 * 3600
+                    - hour * 3600) / 60;
         }
-        if (minute == 0 && hour == 0) {
+        if (week == 0 && day == 0 && hour == 0 && minute == 0) {
             seconds = secondsIn;
         } else {
-            seconds = secondsIn - hour * 3600 - minute * 60;
+            seconds = secondsIn - week * 7 * 24 * 3600 - day * 24 * 3600
+                    - hour * 3600 - minute * 60;
         }
 
         //выбор нужных слов используя метод wordChoice, ниже
         String secondsWord = null;
         String minuteWord = null;
         String hourWord = null;
+        String dayWord = null;
+        String weekWord = null;
+
         if (wordChoice(seconds) > 2) {
             secondsWord = "секунд";
         } else if (wordChoice(seconds) < 2) {
@@ -52,6 +69,22 @@ public class Time {
             } else if (wordChoice(hour) < 2) {
                 hourWord = "час";
             } else hourWord = "часа";
+        }
+
+        if (day != 0) {
+            if (wordChoice(day) > 2) {
+                dayWord = "дней";
+            } else if (wordChoice(day) < 2) {
+                dayWord = "день";
+            } else dayWord = "дня";
+        }
+
+        if (week != 0) {
+            if (wordChoice(week) > 2) {
+                weekWord = "недель";
+            } else if (wordChoice(week) < 2) {
+                weekWord = "недели";
+            } else weekWord = "недели";
         }
 
         //вывод результата
