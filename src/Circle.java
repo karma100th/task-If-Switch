@@ -15,8 +15,8 @@ public class Circle {
         int circleRadius = read.nextInt();
         read.close();
         //через теорему пифагора или формулу окружности получаем сравнение ((Xc-Xp)^2+(Yc-Yp)^2)?R^2
-        if ((Math.pow((pointX-circlePointX),2)+(Math.pow((pointY-circlePointY),2)))<=
-                (Math.pow(circleRadius,2))){
+        if ((Math.pow((pointX - circlePointX), 2) + (Math.pow((pointY - circlePointY), 2))) <=
+                (Math.pow(circleRadius, 2))) {
             System.out.println("Точка принадлежит кругу");
         } else {
             System.out.println("Точка лежит вне круга");
