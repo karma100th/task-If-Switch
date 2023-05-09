@@ -24,7 +24,7 @@ public class WorkTimer {
                     System.out.print(" часа");
                 }
             }
-        }else System.out.println("Пора домой");
+        } else System.out.println("Пора домой");
     }
 }
 
